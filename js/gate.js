@@ -1,7 +1,7 @@
 (function () {
 
   // ✏️ SET YOUR PASSWORD HERE
-  const PASSWORD = 'phulu';
+  const PASSWORD = 'phullu';
 
   const overlay   = document.getElementById('gateOverlay');
   const input     = document.getElementById('gateInput');
