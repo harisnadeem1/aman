@@ -1,0 +1,46 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.hero-glow {
+  animation: floatGlow 7s ease-in-out infinite;
+}
+
+.music-icon {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.music-icon-play {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.music-icon-pause {
+  opacity: 0;
+  transform: scale(0.82);
+}
+
+.music-icon-button.is-playing .music-icon-play {
+  opacity: 0;
+  transform: scale(0.82);
+}
+
+.music-icon-button.is-playing .music-icon-pause {
+  opacity: 1;
+  transform: scale(1);
+}

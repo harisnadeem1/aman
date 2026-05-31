@@ -1,0 +1,43 @@
+:root {
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --bg: #fcf9ff;
+  --surface: #ffffff;
+  --surface-soft: #f4ecff;
+  --surface-deep: #eadcff;
+  --primary: #8b5cf6;
+  --primary-dark: #6d41d8;
+  --secondary: #c084fc;
+  --accent: #f4b7d9;
+  --text: #2f2346;
+  --text-muted: #6f6486;
+  --border: rgba(139, 92, 246, 0.18);
+  --shadow: 0 18px 45px rgba(123, 82, 190, 0.14);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  --container: 1120px;
+   --header-shell-bg: rgba(255, 255, 255, 0.68);
+  --header-shell-border: rgba(139, 92, 246, 0.12);
+  --header-shell-shadow: 0 10px 30px rgba(109, 65, 216, 0.08);
+  --header-shell-highlight: rgba(255, 255, 255, 0.65);
+
+  --music-button-size: 2.85rem;
+  --brand-icon-size: 2.5rem;
+  --brand-wordmark-size: 1.35rem;
+}

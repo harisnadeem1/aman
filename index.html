@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A romantic story told through memories, words, and promises." />
+  <title>My Love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- PASSWORD GATE — must be first element in body -->
+<div class="gate-overlay" id="gateOverlay">
+  <div class="gate-glow gate-glow-one" aria-hidden="true"></div>
+  <div class="gate-glow gate-glow-two" aria-hidden="true"></div>
+
+  <div class="gate-box">
+
+    <div class="gate-icon" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="44" height="44" fill="none">
+        <rect x="8" y="20" width="32" height="24" rx="6" fill="url(#lockGrad)" opacity="0.9"/>
+        <path d="M16 20v-6a8 8 0 0 1 16 0v6" stroke="url(#lockStroke)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="24" cy="32" r="3" fill="white" opacity="0.85"/>
+        <defs>
+          <linearGradient id="lockGrad" x1="8" y1="20" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#a855f7"/>
+            <stop offset="100%" stop-color="#7c3aed"/>
+          </linearGradient>
+          <linearGradient id="lockStroke" x1="16" y1="14" x2="32" y2="20" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#c084fc"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="gate-text">
+      <h1 class="gate-title">This page is just for you</h1>
+      <p class="gate-subtitle">Enter the password to open your surprise</p>
+    </div>
+
+    <div class="gate-form">
+      <div class="gate-input-wrap" id="gateInputWrap">
+        <input
+          class="gate-input"
+          id="gateInput"
+          type="password"
+          placeholder="Enter my nickname"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          maxlength="32"
+          aria-label="Password"
+        />
+        <button class="gate-toggle-btn" id="gateToggleBtn" type="button" aria-label="Show password">
+          <svg class="eye-icon eye-show" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <svg class="eye-icon eye-hide" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+            <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+
+      <p class="gate-error" id="gateError" aria-live="polite"></p>
+
+      <button class="gate-submit" id="gateSubmit" type="button">
+        Open my surprise ♥
+      </button>
+    </div>
+
+    <p class="gate-hint">Only one person knows this password</p>
+
+  </div>
+</div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-mark" aria-label="Go to top">
+        <span class="brand-mark-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="28" height="28">
+            <path
+              d="M32 54c-1.2 0-2.3-.4-3.2-1.2C14.3 40.8 8 33.9 8 24.8 8 17.2 13.8 12 20.6 12c4.5 0 8.7 2.1 11.4 5.6C34.7 14.1 38.9 12 43.4 12 50.2 12 56 17.2 56 24.8c0 9.1-6.3 16-20.8 28-.9.8-2 1.2-3.2 1.2Z"
+              fill="currentColor" />
+          </svg>
+        </span>
+        <span class="brand-text-wrap">
+          <span class="brand-overline">only for you</span>
+          <span class="brand-text">My Phulli</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#story">Story</a>
+        <a href="#counter">Counter</a>
+        <a href="#reasons">Why I Love You</a>
+        <a href="#letter">Letter</a>
+        <a href="#confession">Your Words</a>
+        <a href="#surprise">Surprise</a>
+      </nav>
+
+      <button class="music-icon-button" id="music-toggle" type="button" aria-label="Play music" aria-pressed="false">
+        <span class="music-icon music-icon-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="currentColor"></path>
+          </svg>
+        </span>
+
+        <span class="music-icon music-icon-pause" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <rect x="7" y="6" width="3.2" height="12" rx="1.2" fill="currentColor"></rect>
+            <rect x="13.8" y="6" width="3.2" height="12" rx="1.2" fill="currentColor"></rect>
+          </svg>
+        </span>
+      </button>
+
+      <audio id="background-music" preload="none" loop>
+        <source src="./assets/audio/background-music.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section id="hero" class="hero-section section">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="container hero-grid hero-grid-premium">
+        <div class="hero-copy reveal visible">
+          <p class="eyebrow">For my phulli</p>
+
+          <h1 class="hero-title">
+            You became my Life, my Joy, and my Everything.
+          </h1>
+
+          <p class="hero-text hero-text-premium">
+            There was no one else before you. I was living in my own world focused on life and career and then you
+            came and changed the feeling of everything. My cutie little pie is page pr kuch dil ki batyeen ki hn dehan
+            sy parhna sab.
+          </p>
+
+          <div class="hero-mini-notes">
+            <span>My Love</span>
+            <span>My Phulli</span>
+            <span>My Peace</span>
+            <span>Cutie Pie</span>
+
+          </div>
+        </div>
+
+        <aside class="hero-vow-card reveal visible delay-1">
+          <p class="hero-vow-kicker">A promise already living in my heart</p>
+
+          <p class="hero-vow-quote">
+            I want you to be my first and last. I do not want someone else after you.
+          </p>
+
+          <div class="hero-vow-divider"></div>
+
+          <p class="hero-vow-text">
+            Ap mere Phulli ho or mai apka phullu hu and every part of this page is only trying to say one thing in
+            different ways: I love you more deeply than words can fully hold.
+          </p>
+
+          <div class="hero-vow-sign">
+            <span>Forever yours</span>
+            <strong>Your phullu</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="story" class="story-section section">
+      <div class="container story-shell">
+        <div class="section-heading story-heading reveal visible">
+          <p class="section-kicker">Our story</p>
+          <h2 class="story-title">The chapters that changed everything</h2>
+          <p class="story-intro">
+
+
+            Yeh kuch events hn phulli k sath jo mere liye bohat important hn jin sy meri feelings or emotions kafi
+            zyada strong ho gyy hn. In ki wajah sy meri life kafi zyada change ho gyi hy. In moments ko maine yahan
+            rakha hy
+            or har moment ki apni ek value hy mere dil mai.
+          </p>
+        </div>
+
+        <div class="timeline timeline-premium" id="timeline"></div>
+      </div>
+    </section>
+
+
+
+    <section id="counter" class="counter-section section">
+      <div class="container counter-shell reveal visible">
+        <div class="counter-copy">
+          <p class="section-kicker">Still counting</p>
+          <h2 class="letter-main-title">Since 17 November, every day has carried a little more of my phulli in my heart
+          </h2>
+          <p class="letter-subtitle">
+            Phli dafa jab ham aristo pr mily thy or mere sath thora sa hand ho gya tha or mai late ho gya tha. Phulli ko
+            wait krna para a kr. First impression hi kharab ho gya. Lkin udr jab phulli ko dekha tha side pr table pr 1
+            beautifull si lady bethi mobile chla rhi thi. Ja k mai betha to agy sy kehti k tum bilkul bhi nai badly. Us
+            din ap sy dubara piyar ho gya tha. Jab bhi milta hu dubara dubara piyar hoi jata hy. Jadu chlaya hoa ap ny
+          </p>
+        </div>
+
+        <div class="counter-card counter-card-premium" aria-live="polite">
+          <div class="counter-orb"></div>
+
+          <p class="counter-badge">Our first meeting</p>
+
+          <div class="counter-number-wrap">
+            <div class="counter-number" id="days-count">000</div>
+            <p class="counter-label">days since we first met</p>
+          </div>
+
+          <div class="counter-meta">
+            <div class="counter-meta-item">
+              <span class="counter-meta-label">Started from</span>
+              <strong id="counter-start-date">17 November 2025</strong>
+            </div>
+            <div class="counter-meta-item">
+              <span class="counter-meta-label">Place</span>
+              <strong>Aristo Polo</strong>
+            </div>
+          </div>
+
+          <p class="counter-note">
+            The day our story stepped out of messages and into a real moment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <section id="reasons" class="reasons-section section">
+      <div class="container">
+        <div class="section-heading reveal visible">
+          <p class="section-kicker">Why I love you</p>
+          <h2>The little things that made me love you more</h2>
+          <p>
+            It was not just one moment that made me love you. It was the way you cared for me, asked about my day, told
+            me to stay safe, and made me feel important. Little by little, your nature, your love, and your efforts made
+            a very special place in my heart.
+          </p>
+        </div>
+
+        <div class="reasons-grid long-grid">
+          <article class="reason-card reveal visible">
+            <h3>Your kind heart</h3>
+            <p>
+              I love you because you are very kind-hearted. There is softness in your nature that makes you different
+              from others.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-1">
+            <h3>Your pure heart</h3>
+            <p>
+              Your heart is so pure that you forgive the mistakes of other people. That purity is one of the most
+              beautiful things about you.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-2">
+            <h3>You take a stand</h3>
+            <p>
+              The way you take a stand for someone special to you when something wrong is going to happen to them is one
+              of the reasons I love you so much.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible">
+            <h3>You asked about me</h3>
+            <p>
+              Even before we confessed our love, you used to ask whether I had eaten something and how my day was. Those
+              small questions meant a lot to me.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-1">
+            <h3>You cared for my safety</h3>
+            <p>
+              Whenever I was going to travel, you asked me to message you when I reached and told me to stay safe. That
+              care touched my heart deeply.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-2">
+            <h3>Your love language</h3>
+            <p>
+              Your love language impressed me deeply. The way you cared, asked, and noticed little things brought me
+              closer to you more and more.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible">
+            <h3>You made me feel important</h3>
+            <p>
+              The way you treated me and the way you cared for small things made me feel important in your life, and
+              that feeling became very special to me.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-1">
+            <h3>Your jealousy</h3>
+            <p>
+              When someone tried to approach me or talk to me, the way you got jealous showed clear signs of love to me.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-2">
+            <h3>I started understanding your feelings</h3>
+            <p>
+              After seeing those little signs, I started guessing that you loved me too. That made me put more effort
+              into our relationship.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible">
+            <h3>You were sad after goodbye</h3>
+            <p>
+              When we were going home after meetup, you used to say you felt sad and wanted to come back and sit some
+              more time with me. That feeling was full of love.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-1">
+            <h3>We started meeting more</h3>
+            <p>
+              After our second and third meetup, we started meeting too much, almost daily or two to three times weekly,
+              and that made me more close to you.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-2">
+            <h3>Goldcrest changed everything</h3>
+            <p>
+              When we visited Goldcrest our relationship became stronger and stronger. That place became part of our
+              story forever.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible">
+            <h3>Our love confession</h3>
+            <p>
+              1205 was the place where we first confessed our love. That moment gave our
+              relationship a new meaning.
+            </p>
+          </article>
+
+          <article class="reason-card reveal visible delay-1">
+            <h3>Your place in my heart</h3>
+            <p>
+              From that time you had a place in my heart which no one ever took and no one ever could take.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="letter" class="letter-section section">
+      <!-- Floating hearts canvas -->
+      <!-- <canvas class="letter-hearts-canvas" id="letterHeartsCanvas" aria-hidden="true"></canvas> -->
+
+      <!-- Background glows -->
+      <div class="letter-glow letter-glow-one" aria-hidden="true"></div>
+      <div class="letter-glow letter-glow-two" aria-hidden="true"></div>
+      <div class="letter-glow letter-glow-three" aria-hidden="true"></div>
+
+      <div class="container letter-shell reveal visible">
+        <div class="section-heading letter-heading">
+          <p class="section-kicker letter-kicker">My letter</p>
+          <h2 class="letter-main-title">A few words for my Phulli</h2>
+          <p class="letter-subtitle">
+            This is not just a letter. It is my heart written in simple words for the one who became my everything.
+          </p>
+        </div>
+
+        <article class="letter-card-premium">
+          <canvas class="letter-hearts-canvas" id="letterHeartsCanvas" aria-hidden="true"></canvas>
+
+          <div class="letter-card-header">
+
+
+          </div>
+
+          <div class="letter-body">
+            <p class="letter-dear">My phulli,</p>
+
+            <p>
+              There was no other girl in my life before you. I was living in my own world focused on my career and I
+              never even thought about this. Then you came and slowly everything changed. You became my everything.
+            </p>
+
+            <p>
+              You are my love, my joy, and my life. I love you so much and maybe you do not even know how deeply. Before
+              you my only goal was my career. After you came now you are also one of my biggest goals in life.
+            </p>
+
+            <p>
+              I want to make you happy. I want you to live your life freely and with peace. I can do anything for your
+              smile. You are the one I want to marry. The one I want beside me forever.
+            </p>
+
+            <p>
+              Maybe I am immature at some points because this is my first time in my life handling all this. But one
+              thing is completely true. I am trying with all my heart to be yours and to make you mine.
+            </p>
+
+            <p>
+              I want you to be my first and my last. I do not want anyone after you. You are so perfect in every way.
+              You know how to take care of me. You know how to talk to me. You know exactly what I like and what I do
+              not. You always try to make me happy.
+            </p>
+
+            <p>
+              You are the only person in my life who knows every secret about me. Every small detail. That is why you
+              are not just my love. You are my person.
+            </p>
+
+            <p>
+              I do not want to marry you only because I love you. I want to marry you because you are my perfect life
+              partner. Our mindset matches. Our thoughts match. Our way of thinking matches. Even our mood matches so
+              many times.
+            </p>
+
+            <p>
+              You are my phulli and I am your phullu. I promise I will never hurt you. I will never betray you. I will
+              never ask you to do anything against your choice.
+            </p>
+
+            <p>
+              If you are ever on the wrong path I will guide you with love and never force you. I never want to lose
+              you. You stay in my mind and in my heart all the time. Always.
+            </p>
+
+            <p>
+              You are so beautiful that no one can ever take your place. You are my only love. My little lovely small
+              cutie pie. And
+              I will take every last step that brings us closer to the life we deserve together.
+            </p>
+
+            <div class="letter-signoff">
+              <div class="letter-signoff-left">
+                <span class="letter-forever">Forever and always</span>
+              </div>
+              <div class="letter-signoff-right">
+                <strong class="letter-sig-name">Your Phullu</strong>
+              </div>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <section id="confession" class="confession-section section">
+
+      <div class="confession-glow confession-glow-one" aria-hidden="true"></div>
+      <div class="confession-glow confession-glow-two" aria-hidden="true"></div>
+
+      <div class="container confession-container reveal visible">
+
+        <div class="section-heading confession-heading">
+          <p class="section-kicker">The words I will never forget</p>
+          <h2 class="message-main-title">The message that changed everything</h2>
+          <p>
+
+            Ap ny yeh message bhja tha 12 feb ki rat ko or us din k bad sab change ho gya tha. Yeh message exact
+            wordings k sath nichy likh dia hy jysy ap ny likha tha or is message ko parh k alag hi feelings ati hn.
+          </p>
+        </div>
+
+        <article class="confession-card-premium">
+
+          <!-- Top quote mark -->
+          <div class="confession-quote-mark" aria-hidden="true">
+            <svg viewBox="0 0 60 45" width="52" height="40" fill="none">
+              <path
+                d="M0 45V27C0 10.2 9.6 2.4 28.8 0l2.4 4.8C20.4 7.2 15 12 14.4 19.2H24V45H0Zm36 0V27C36 10.2 45.6 2.4 64.8 0l2.4 4.8C56.4 7.2 51 12 50.4 19.2H60V45H36Z"
+                fill="url(#quoteGrad)" />
+              <defs>
+                <linearGradient id="quoteGrad" x1="0" y1="0" x2="60" y2="45" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="rgba(139,92,246,0.5)" />
+                  <stop offset="100%" stop-color="rgba(192,132,252,0.2)" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Label -->
+          <div class="confession-label-row">
+            <span class="confession-from-label">From Phulli</span>
+            <span class="confession-dot" aria-hidden="true">·</span>
+            <span class="confession-platform">Whatsapp · 12th Feb 2026</span>
+          </div>
+
+          <!-- The message -->
+          <div class="confession-body">
+            <p>lkn jo bolugi ab sb awkward hojyega lkn mre khiyal se bolna hi bhtr h</p>
+            <p>i know ap is dosti ko bht achy se meaningful way se lkr chlry u r good wid all this ... but for me this
+              alll i m having is beyond freindship ...</p>
+            <p>jitna mene suffer kia h or jo meri nature h i told u alot of time i do get attachments over lil efforts
+              of people but the thing is</p>
+            <p>mre liye koi gadha b kuch kryga me us k liye b feel krlugi ap phir Haris ho tau ap khud andaza lga lo
+              what u mean to me .... i dont want these much efforts in freindship ... if this is just freindship by yr
+              side as well u can stop doing further efforts but if u think like what im thinking beyond freindship zone
+              than u can do nd ill be more happy for that</p>
+          </div>
+
+          <!-- Bottom strip -->
+          <div class="confession-footer">
+            <div class="confession-footer-left">
+              <span class="confession-heart" aria-hidden="true">♥</span>
+              <span class="confession-note">Kept here word by word, exactly as written</span>
+            </div>
+            <div class="confession-footer-right">
+              <span class="confession-name">— Phulli</span>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <section id="surprise" class="surprise-section section">
+
+      <!-- Background layers -->
+      <div class="surprise-bg-layer" aria-hidden="true"></div>
+      <canvas class="surprise-hearts-canvas" id="surpriseHeartsCanvas" aria-hidden="true"></canvas>
+      <div class="surprise-glow surprise-glow-one" aria-hidden="true"></div>
+      <div class="surprise-glow surprise-glow-two" aria-hidden="true"></div>
+      <div class="surprise-glow surprise-glow-three" aria-hidden="true"></div>
+
+      <div class="container surprise-shell reveal visible">
+
+        <!-- Top kicker -->
+        <div class="surprise-intro">
+          <p class="section-kicker surprise-kicker">Before you close this page</p>
+          <h2 class="surprise-title">One last thing, my Phulli</h2>
+          <p class="surprise-subtitle">
+            You have reached the end of this little world I made only for you. There is one last thing I want you to
+            hear from me.
+          </p>
+        </div>
+
+        <!-- Reveal button -->
+        <div class="surprise-button-wrap" id="surprise-button-wrap">
+          <button class="surprise-reveal-btn" id="surprise-button" type="button" aria-expanded="false">
+            <span class="surprise-btn-inner">
+              <span class="surprise-btn-icon" aria-hidden="true">♥</span>
+              <span class="surprise-btn-text">Open my promise</span>
+            </span>
+            <span class="surprise-btn-ring surprise-btn-ring-one" aria-hidden="true"></span>
+            <span class="surprise-btn-ring surprise-btn-ring-two" aria-hidden="true"></span>
+          </button>
+          <p class="surprise-btn-hint">Ahhhhh! Aram sy dubana</p>
+        </div>
+
+        
+
+      </div>
+    </section>
+
+
+    <!-- PROMISE POPUP MODAL -->
+<div class="promise-overlay" id="promiseOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="promiseModalTitle">
+  <div class="promise-modal" id="promiseModal">
+
+    <!-- Close button -->
+    <button class="promise-close" id="promiseClose" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <!-- Glow decoration -->
+    <div class="promise-modal-orb" aria-hidden="true"></div>
+
+    <!-- Step 1: Your paragraph + button -->
+    <div class="promise-step" id="promiseStep1">
+
+      <div class="promise-modal-top">
+        <span class="promise-modal-kicker">My Life</span>
+        <h3 class="promise-modal-title" id="promiseModalTitle">Ayy Phulli ryyy ♥</h3>
+      </div>
+
+      <div class="promise-modal-body">
+        <p>
+         Tension na lia kro zada mai hamseha k liyy apka hi hu. Apka phullu hu or apka hi rhu ga. Kaheen chla jaou to yeh to dispossible hy. Ap hi mera Love ho or ap hi mere life. You are my World. Mujhy hamesha apky sath hi rehna hy apky sath hi ghumi ghumi bhi krni hy. You are my eveything.
+        </p>
+      </div>
+
+      <button class="promise-image-btn" id="promiseImageBtn" type="button">
+        <span class="promise-image-btn-icon" aria-hidden="true">♥</span>
+        <span>Bas Chuup!! Awaz na ayy</span>
+      </button>
+
+    </div>
+
+    <!-- Step 2: Image reveal -->
+    <div class="promise-step promise-step-hidden" id="promiseStep2">
+
+      <div class="promise-image-frame">
+        <img
+          src="./assets/images/secret.jpeg"
+          alt="A special memory for Phulli"
+          class="promise-image"
+          loading="lazy"
+          width="600"
+          height="400"
+        />
+        <div class="promise-image-shine" aria-hidden="true"></div>
+      </div>
+
+      <div class="promise-image-caption">
+        <p>
+          Mere phulli hy choti si. Pari kr do jaldi sy
+        </p>
+        <div class="promise-signoff">
+          <span>Forever yours</span>
+          <strong>Your Phullu ♥</strong>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+    
+  </main>
+<script src="js/gate.js"></script>
+  <script src="./js/timeline.js" defer></script>
+  <script src="./js/counter.js" defer></script>
+  <script src="./js/surprise.js" defer></script>
+  <script src="./js/music.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+
+</html>
